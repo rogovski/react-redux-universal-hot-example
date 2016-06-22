@@ -26,6 +26,8 @@ app.use(bodyParser.json());
 
 
 app.use((req, res) => {
+  console.log('API ENTRY: ', req.url);
+  // req.url will always contain '/.+'
   const splittedUrlPath = req.url.split('?')[0].split('/').slice(1);
 
   const {action, params} = mapUrl(actions, splittedUrlPath);
